@@ -1,0 +1,6 @@
+# uncomment below for extra logs from grit
+# -W3 
+# 8 bit bitmap
+-gB8
+-gT!
+-gb
