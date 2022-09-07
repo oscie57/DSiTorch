@@ -13,9 +13,9 @@ export TOPDIR	:=	$(CURDIR)
 NITRO_FILES	:=
 
 # These set the information text in the nds file
-#GAME_TITLE     := My Wonderful Homebrew
-#GAME_SUBTITLE1 := built with devkitARM
-#GAME_SUBTITLE2 := http://devitpro.org
+GAME_TITLE     := DSiTorch
+GAME_SUBTITLE1 := Use the system torch!
+GAME_SUBTITLE2 := oscie57
 
 include $(DEVKITARM)/ds_rules
 
