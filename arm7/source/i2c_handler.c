@@ -28,6 +28,12 @@ void i2cFifoHandler(u32 value32, void *userdata) {
 			deactivate(I2C_CAM1);
 			fifoSendValue32(FIFO_CAMERA, CAM1_DEACTIVATE);
 			break;
+		case FLASH_ACTIVATE:
+			fifoSendValue32(FIFO_CAMERA, i2cWriteRegister(0x4A, 0x31, 0x01));
+			break;
+		case FLASH_DEACTIVATE:
+			fifoSendValue32(FIFO_CAMERA, i2cWriteRegister(0x4A, 0x31, 0x00));
+			break;
 		case CAM_SET_MODE_PREVIEW:
 			setMode(CAPTURE_MODE_PREVIEW);
 			fifoSendValue32(FIFO_CAMERA, CAPTURE_MODE_PREVIEW);

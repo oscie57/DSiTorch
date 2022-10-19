@@ -11,13 +11,21 @@
 bool status = false;
 
 void turnOn() {
-	cameraActivate( CAM_OUTER );
+	printf("writing - torch on");
+	fifoSendValue32(FIFO_CAMERA, FLASH_ACTIVATE); // turns on torch
+	fifoWaitValue32(FIFO_CAMERA);
+	fifoGetValue32(FIFO_CAMERA);
+	printf("written - torch on");
 	// set backgrounds to top1 and bottom1
 	status = true;
 }
 
 void turnOff() {
-	cameraDeactivate( CAM_OUTER );
+	printf("writing - torch off");
+	fifoSendValue32(FIFO_CAMERA, FLASH_DEACTIVATE);  // turns off torch
+	fifoWaitValue32(FIFO_CAMERA);
+	fifoGetValue32(FIFO_CAMERA);
+	printf("written - torch off");
 	// set backgrounds to top0 and bottom0
 	status = false;
 }
@@ -27,15 +35,7 @@ int main(void) {
 
 	consoleDemoInit();  //setup the sub screen for printing
 
-	iprintf("Initializing Camera...");
-	cameraInit();
-	iprintf("Camera Initialized!");
-
 	iprintf("\x1b[2J");
-
-	iprintf("\n\n\tHello DS dev'rs\n");
-	iprintf("\twww.drunkencoders.com\n");
-	iprintf("\twww.devkitpro.org");
 
 	while(1) {
 
@@ -53,6 +53,8 @@ int main(void) {
 			break;
 		};
 		if ( keysDown() & KEY_A ) {
+
+			// play sound effect
 
 			if (status == false) {
 				iprintf("Turning On. ");
