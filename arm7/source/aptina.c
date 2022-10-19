@@ -159,3 +159,4 @@ void setMode(CaptureMode mode) {
 	aptWriteMcu(currentDevice, 0xA103, mode);
 	aptWaitMcuClr(currentDevice, 0xA103, 0xFFFF);
 }
+
