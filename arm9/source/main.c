@@ -14,6 +14,15 @@ int bgTop;
 int bgBot;
 
 
+/* to do:
+
+- add sound effects
+- touch screen changes it
+- fix icon
+
+*/
+
+
 void turnOn() {
 	// turn the torch on
 	fifoSendValue32(FIFO_CAMERA, FLASH_ACTIVATE); // turns on torch
@@ -56,8 +65,6 @@ int main(void) {
 	videoSetModeSub(MODE_5_2D);
     vramSetBankA(VRAM_A_MAIN_BG_0x06000000);
 
-	iprintf("\x1b[2J");
-
 	status = false;
 
 	// consoleDemoInit();  //setup the sub screen for printing
@@ -74,8 +81,6 @@ int main(void) {
 	while(1) {
 
 		touchRead(&touch);
-		iprintf("\x1b[10;0HTouch x = %04i, %04i\n", touch.rawx, touch.px);
-		iprintf("Touch y = %04i, %04i\n", touch.rawy, touch.py);
 
 		swiWaitForVBlank();
 		scanKeys();

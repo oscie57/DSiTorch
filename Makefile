@@ -17,6 +17,8 @@ GAME_TITLE     := DSiTorch
 GAME_SUBTITLE1 := Use the system torch!
 GAME_SUBTITLE2 := oscie57
 
+GAME_ICON	   := icon.bmp
+
 include $(DEVKITARM)/ds_rules
 
 .PHONY: checkarm7 checkarm9 clean
