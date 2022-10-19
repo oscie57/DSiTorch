@@ -13,16 +13,6 @@ bool status = false;
 int bgTop;
 int bgBot;
 
-
-/* to do:
-
-- add sound effects
-- touch screen changes it
-- fix icon
-
-*/
-
-
 void turnOn() {
 	// turn the torch on
 	fifoSendValue32(FIFO_CAMERA, FLASH_ACTIVATE); // turns on torch
