@@ -30,6 +30,7 @@
 #include <nds.h>
 #include <dswifi7.h>
 #include <maxmod7.h>
+#include "i2c_handler.h"
 
 //---------------------------------------------------------------------------------
 void VblankHandler(void) {
@@ -86,6 +87,8 @@ int main() {
 	irqEnable( IRQ_VBLANK | IRQ_VCOUNT | IRQ_NETWORK);
 
 	setPowerButtonCB(powerButtonCB);
+
+	fifoSetValue32Handler(FIFO_CAMERA, i2cFifoHandler, NULL);
 
 	// Keep the ARM7 mostly idle
 	while (!exitflag) {
