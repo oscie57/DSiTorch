@@ -2,7 +2,7 @@
 
 DSi Homebrew Application for enabling the torch on the back of the system.
 
-### [Latest Release](https://github.com/oscie57/DSiTorch/releases/tag/latest)
+### [Latest Release (v1.0)](https://github.com/oscie57/DSiTorch/releases/tag/1.0)
 
 ## Controls
 
